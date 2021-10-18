@@ -1,0 +1,30 @@
+﻿@page
+@using System.Web
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    if (Model.Authenticated)
+    {
+        ViewData["Title"] = "Logged in";
+    }
+    var clientId = Environment.GetEnvironmentVariable("CLIENT_ID");
+    var redirect = HttpUtility.UrlEncode(Environment.GetEnvironmentVariable("REDIRECT_URI"));
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    
+    @if (Model.Authenticated)
+    {
+        <p>You are authenticated!</p>
+        <p>You are @Model.CurrentUser!.Tag</p>
+    }
+    else
+    {
+        <p>
+            Login via this
+            <a href="https://discord.com/api/oauth2/authorize?client_id=@clientId&redirect_uri=@redirect&response_type=code&scope=identify">
+                link</a> to try.
+        </p>
+    }
+</div>
