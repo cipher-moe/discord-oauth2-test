@@ -30,7 +30,6 @@ namespace discord_oauth_test
         {
             services.AddSingleton(new HttpClient());
             services.AddBearerClientFactory();
-            services.AddToken(Token.None);
             services.AddRazorPages();
             services.AddEasyCaching(cache =>
             {

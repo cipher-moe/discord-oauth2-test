@@ -29,16 +29,7 @@ namespace discord_oauth_test.Pages
             if (token != null)
             {
                 var clientFactory = HttpContext.RequestServices.GetRequiredService<IBearerClientFactory>();
-                IBearerClient client;
-                if (await cache.ExistsAsync(token))
-                {
-                    client = (await cache.GetAsync<IBearerClient>(token)).Value;
-                }
-                else
-                {
-                    client = clientFactory.CreateClient(Token.Bearer(token));
-                    await cache.SetAsync(token, client, TimeSpan.FromDays(1));
-                }
+                IBearerClient client = clientFactory.CreateClient(Token.Bearer(token));
                 try
                 {
                     var user = await client.FetchCurrentUserAsync();

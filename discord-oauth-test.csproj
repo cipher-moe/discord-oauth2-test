@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AspNet.Security.OAuth.Discord" Version="5.0.16" />
-    <PackageReference Include="Disqord.OAuth2" Version="1.0.0-10182021-139" />
+    <PackageReference Include="Disqord.OAuth2" Version="1.0.0-10182021-140" />
     <PackageReference Include="dotenv.net" Version="3.1.1" />
     <PackageReference Include="EasyCaching.InMemory" Version="1.4.1" />
   </ItemGroup>
